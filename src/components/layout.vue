@@ -22,15 +22,20 @@
     <div class="app-foot">
       © 2018 fishenal MIT
     </div>
+    <my-dialog></my-dialog>
   </div>
 </template>
 <script type="text/ecmascript-6">
+import Dialog from './dialog'
 export default{
   name: 'layout',
   data () {
     return {
       'msg': ''
     }
+  },
+  components: {
+    'my-dialog': Dialog
   }
 }
 </script>

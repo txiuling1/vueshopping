@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="index-right">
-      <slider-show :slides="slides" :inv="slideSpeed">
+      <slider-show @onchange="doSomethingOnSlideChange" :slides="slides" :inv="slideSpeed">
       </slider-show>
       <div class="index-board-list">
         <div class="index-board-item" v-for="(item,index) in boardList" :class="[{'line-last':index%2!==0},'index-board-'+item.id]">
@@ -150,6 +150,11 @@ export default{
           href: 'detail/forecast'
         }
       ]
+    }
+  },
+  methods: {
+    doSomethingOnSlideChange: function (index) {
+      console.log('index:' + index)
     }
   },
   created: function () {
