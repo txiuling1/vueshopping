@@ -1,25 +1,30 @@
 <template>
   <div>
-    <div class="dialog-wrap">
-      <div class="dialog-cover"></div>
+    <div class="dialog-wrap" v-if="isShow">
+      <div class="dialog-cover" @click="closeMyself"></div>
         <div class="dialog-content">
-          <p class="dialog-close">x</p>
-          hello
+          <p class="dialog-close" @click="closeMyself">x</p>
+          <slot>默认</slot>
         </div>
     </div>
   </div>
 </template>
 <script type="text/ecmascript-6">
 export default{
-  name: 'dialog',
+  name: 'mydialog',
   props: {
     isShow: {
-      type: Boolean,
-      default: false
+      'type': Boolean,
+      'default': false
     }
   },
   data () {
     return {}
+  },
+  methods: {
+    closeMyself () {
+      this.$emit('on-close')
+    }
   }
 }
 

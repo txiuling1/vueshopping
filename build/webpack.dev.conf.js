@@ -14,6 +14,7 @@ const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 let appData = require('../db.json');
 let getList = appData.getNewsList;
+let login = appData.login;
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -51,6 +52,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         res.json({
           errno:0,
           data:getList
+        })
+      }),
+      app.get('/api/login',function(req, res){
+        console.log("req is login");
+        res.json({
+          errno:0,
+          data:login
         })
       })
     }
