@@ -87,7 +87,7 @@ export default{
           list: [
             {
               name: '数据统计',
-              url: 'http://starcraft.com'
+              url: 'http://warcraft.com'
             },
             {
               name: '数据预测',
